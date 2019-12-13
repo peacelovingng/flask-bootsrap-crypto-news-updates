@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron text-center text-primary">
+  <h1 class="display-5 text-white">Welcome To Crypto News Updates</h1>
+  <p class="lead">The Latest Trends In CryptoCurrency</p>
+</div>
+
+<div class='container'></div>
+    <div class='row'>
+        {% for x in api.Data[:21] %}
+            <div class='col-sm'>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ x.imageurl }}" alt="{{ x.source }}">
+                    <div class="card-body">
+                       <h5 class="card-title">{{ x.title }}</h5>
+                       <a href="{{ x.url }}" target='_blank' class="btn btn-secondary">Read more...</a>
+                    </div>
+                </div>
+              <br>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
